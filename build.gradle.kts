@@ -33,6 +33,7 @@ dependencies {
     implementation("org.springframework.amqp:spring-rabbit-stream")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13")
     testImplementation("org.springframework.boot:spring-boot-starter-amqp-test")
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
     testImplementation("org.springframework.boot:spring-boot-starter-security-test")
