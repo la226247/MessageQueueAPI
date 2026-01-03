@@ -17,14 +17,15 @@ public class MessageService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    // Publier vers RabbitMQ + sauvegarder en BDD
     public void publishMessage(String content) {
-        // Envoyer vers RabbitMQ queue "messages"
-        // Sauvegarder en BDD
+        rabbitTemplate.convertAndSend("messages", content);
+        
+        Message message = new Message();
+        message.setContent(content);
+        messageRepository.save(message);
     }
 
-    // Récupérer tous les messages
     public List<Message> getAllMessages() {
-        // À compléter
+        return messageRepository.findAll();
     }
 }
